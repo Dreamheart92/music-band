@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nova+Cut&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    color: white;
+    background-color: rgb(39 39 42);
+
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+/*body::before {*/
+/*    position: absolute;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    content: "";*/
+/*    background-image: url("assets/background.webp");*/
+/*    background-attachment: fixed;*/
+/*    background-size: cover;*/
+/*    background-position: center;*/
+/*    z-index: -500;*/
+/*    filter: blur(50px);*/
+/*}*/
+
+#hero {
+    height: calc(100vh - 5em);
+}
+
+#lyrics {
+    z-index: 100;
+}
+
+#event {
+    position: relative;
+}
+
+#event::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('assets/eventBackground.webp');
+    background-position: center;
+    background-size: cover;
+    filter: brightness(30%) blur(5px);
+    z-index: -500;
+}
+
+#single::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: var(--bg-image);
+    background-position: center;
+    background-size: cover;
+    z-index: -100;
+    filter: blur(10px) brightness(30%);
+}
+
+#album {
+    position: relative;
+}
+
+/*#album::before {*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    z-index: -100;*/
+/*    background-image: var(--bg-image);*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    background-size: cover;*/
+/*    background-position: center;*/
+/*    filter: brightness(50%);*/
+/*}*/
+
+.carousel-image {
+    width: 30em;
+    position: absolute;
+    height: 30em;
+    opacity: 0;
+}
+
+.active-image, .previous-image, .next-image {
+    transition: all 300ms ease-in;
+}
+
+.active-image {
+    z-index: 3;
+    opacity: 1;
+    left: 50%;
+    transform: translateX(-50%) scale(100%);
+}
+
+.previous-image {
+    z-index: 1;
+    opacity: 1;
+    left: 0;
+    transform: scale(70%);
+
+}
+
+.next-image {
+    z-index: 1;
+    opacity: 1;
+    left: 50%;
+    transform: scale(70%);
+}
