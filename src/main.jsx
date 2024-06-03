@@ -61,7 +61,7 @@ const router = createBrowserRouter([
             }
         ]
     }
-], {basename: '/sevi-band/'})
+])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
