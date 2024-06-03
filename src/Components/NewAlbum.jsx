@@ -3,7 +3,8 @@ import {Link} from "react-router-dom";
 
 export default function NewAlbum() {
     return (
-        <section id='album' className='flex w-full h-full justify-center pt-24 pb-24 gap-4 bg-zinc-700'>
+        <section id='album'
+                 className='flex w-full h-full flex-wrap justify-center pt-12 lg:pt-24 pb-0 px-2 lg:px-0 gap-4 bg-zinc-700'>
             <div>
                 <img
                     className='w-[32em] h-[80%] rounded-xl'
@@ -19,10 +20,10 @@ export default function NewAlbum() {
                 </div>
             </div>
 
-            <div>
+            <div className='w-[500px] lg:w-[600px] h-[200px] lg:h-[570px]'>
                 <iframe
                     src={data.spotifyEmbedAlbums.genesis}
-                    width="600" height="570" allowFullScreen=""
+                    width="100%" height="100%" allowFullScreen=""
                     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                     loading="lazy"></iframe>
             </div>

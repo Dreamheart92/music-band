@@ -4,7 +4,7 @@ import {useLocation} from "react-router-dom";
 export default function Events() {
     const location = useLocation();
 
-    let containerStyle = `w-full h-screen flex flex-col items-center justify-center py-12`;
+    let containerStyle = `w-full h-screen flex flex-col items-center justify-center py-12 px-4`;
 
     containerStyle += location.pathname === '/tour' ? ' pt-48' : ' pt-24'
 
@@ -14,18 +14,21 @@ export default function Events() {
 
             <h1 className="w-full mb-12 font-mono text-5xl text-center">SHOW DATES</h1>
 
-            <table className="w-[70%] h-full">
+            <table className="w-full lg:w-[70%] h-full">
                 <tbody className="text-left">
                 {data.events.map(event => (
                     <tr
-                        className="cursor-pointer font-mono text-[1.2em] border-b-[.05em] border-stone-700"
+                        className="cursor-pointer font-mono text-[.95em] lg:text-[1.2em] border-b-[.05em] border-stone-700"
                         key={event.event}>
                         <td className='px-2 py-5'>{event.date}</td>
                         <td>{event.event}</td>
                         <td>
                             <p>{`${event.city}, ${event.country}`}</p>
                         </td>
-                        <td>{event.tickets ? 'TICKETS' : null}</td>
+                        <td>
+                            {event.tickets && <button
+                                className='bg-amber-700 px-3 py-1 flex justify-center'>TICKETS</button>}
+                        </td>
                     </tr>
                 ))}
                 </tbody>

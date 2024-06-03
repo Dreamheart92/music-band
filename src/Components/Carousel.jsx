@@ -4,6 +4,9 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faArrowRight} from "@fortawesome/free-solid-svg-icons/faArrowRight";
 import {faArrowLeft} from "@fortawesome/free-solid-svg-icons/faArrowLeft";
 
+const imageWidth = 'w-[15em] lg:w-[30em]';
+const imageHeight = 'h-[15em] lg:h-[30em]';
+
 export default function Carousel({albums, activeIndex, onHandleSlide}) {
 
     const totalAlbums = albums.length;
@@ -22,9 +25,9 @@ export default function Carousel({albums, activeIndex, onHandleSlide}) {
     return (
         <>
             <section className='w-full h-full justify-center flex'>
-                <div className='w-[60em] h-full flex relative'>
+                <div className='w-[29em] lg:w-[60em] h-full flex relative'>
 
-                    <div className='absolute top-[50%] -left-10 cursor-pointer'>
+                    <div className='absolute top-[50%] translate-y-[-50%] left-10 z-50 lg:-left-10 cursor-pointer'>
                         <FontAwesomeIcon
                             className='text-3xl hover:text-zinc-400'
                             onClick={() => handleSlide('left')}
@@ -37,9 +40,9 @@ export default function Carousel({albums, activeIndex, onHandleSlide}) {
                             const isNextImage = nextIndex === index;
 
                             return (
-                                <div key={album.name} className='w-[30em] h-[30em]'>
+                                <div key={album.name} className={`${imageWidth} ${imageHeight}`}>
                                     <img
-                                        className={`carousel-image 
+                                        className={`carousel-image ${imageWidth} ${imageHeight}
                                     ${isPreviousImage ? 'previous-image' : null}
                                     ${isCurrentImage ? 'active-image' : null}
                                     ${isNextImage ? 'next-image' : null}`} src={album.image_url} alt=""/>
@@ -48,7 +51,7 @@ export default function Carousel({albums, activeIndex, onHandleSlide}) {
                         }
                     )}
 
-                    <div className='absolute top-[50%] -right-10 cursor-pointer'>
+                    <div className='absolute top-[50%] z-50 right-10 lg:-right-10 cursor-pointer'>
                         <FontAwesomeIcon
                             className='text-3xl hover:text-zinc-400'
                             onClick={() => handleSlide('right')}
